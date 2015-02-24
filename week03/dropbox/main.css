@@ -1,0 +1,60 @@
+@import url(http://fonts.googleapis.com/css?family=Neuton:200,300,400,700,400italic|Montserrat);
+
+body {
+	padding: 30px 0;
+	border-top: 7px solid #1480E3;
+	font-family: 'Neuton', serif;
+	color: #323232;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+	color: #444444;
+}
+
+h1 {
+	font-size: 45px;
+	line-height: 56px;
+	color: #1480E3;
+}
+
+aside.byline {
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 300;
+	font-style: italic;
+	color: #999999;
+	margin-bottom: 30px;
+}
+
+h4, h3 {
+	margin-top: 30px;
+}
+
+p, ol, ul, a {
+	font-size: 21px;
+	line-height: 34px;
+	font-weight: 300;
+}
+
+a {
+	color: #1480E3;
+}
+
+figure {
+	margin: 15px 0;
+}
+
+.caption {
+	width: 50%;
+	margin: 15px auto;
+	border-top: 1px solid #f2f2f2;
+}
+
+.caption p, .caption a {
+	font-size: 16px;
+}
+
+i {
+	color: #1480E3;
+}

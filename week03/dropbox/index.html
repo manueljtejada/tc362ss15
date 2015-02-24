@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dropbox: Behind the Scenes</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+	<!-- Main CSS Stylesheet -->
+	<link rel="stylesheet" href="main.css">
+
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="text-center">
+					<i class="fa fa-dropbox fa-4x"></i>
+					<h1>Dropbox: Behind the Scences</h1>
+					<aside class="byline">By Manuel J. Tejada | February 24th, 2014</aside>
+				</div>
+				<p>Dropbox is a file hosting service founded in 2007 by Drew Houston and Arash Ferdowsi. It is currently headquartered in San Francisco, California. Dropbox offers cloud storage and file synchronization. Files can be easily shared and can be accessed through many client software for Microsoft Windows, Mac OS X, Linux, Android, iOS, Blackberry OS and web browsers.</p>
+				<p>About four years after the service launched in 2008, it had 100 million users. But it only took 10 months to get 100 million more. As the number of users has grown, Dropbox has had to adapt and expand their physical infrastructure as well.</p>
+
+				<h3>Dropbox's Servers</h3>
+				<p>Dropbox has three types of servers &mdash; metadata servers, storage servers and processing servers. In order to store files for more than 200 million users, Dropbox uses more than 10,000 physical servers along with <a href="http://aws.amazon.com/" target="_blank">Amazon Web Services</a>.</p>
+				<ol>
+					<li><strong>Metadata servers</strong> store information about the user and the files, but does not store the files themselves. This information includes file names, locations, modification dates and file types. Dropbox’s metadata servers are physical servers located in the company’s data centers. They communicate with the client software with an SSL protection layer.</li>
+					<li><strong>Storage servers</strong> store the actual file data in encrypted blocks. Dropbox uses Amazon’s S3 storage service for this. Amazon S3 is an online file storage web service that uses interfaces like REST, SOAP and BitTorrent and provides virtually unlimited cloud and internet storage.</li>
+					<li><strong>Processing servers</strong> store encryption information and the application servers. Dropbox uses Amazon EC2 for these servers. Amazon Elastic Compute Cloud (EC2) provides <a href="http://aws.amazon.com/ec2/" target="_blank">“resizable compute capacity in the cloud.”</a> Processing servers communicate with storage servers and the client software with an SSL protection layer in between.</li>
+				</ol>
+
+				<figure>
+					<img src="img/diagram.png" alt="Dropbox diagram" class="center-block">
+					<div class="caption">
+						<p class="text-muted text-center">Diagram explaining how Dropbox service work. <br><a href="https://www.dropbox.com/help/1968">www.dropbox.com</a></p>
+					</div>
+				</figure>
+
+				<h3>Dropbox's Security</h3>
+				<p>Dropbox uses <a href="http://computer.howstuffworks.com/encryption4.htm" target="_blank">SSL/TLS</a> for file transfer, which protects the data when it is in transit. Data passes through a secure tunnel protected by 128-bit or higher AES encryption. When data is stored, it is encrypted using 256-bit AES and stored in discrete and fragmented file blocks.</p>
+				<p>They also offer <a href="http://www.perfectforwardsecrecy.com/" target="_blank">perfect forward secrecy (PFS)</a>, <a href="http://security.stackexchange.com/questions/25058/cookies-secure-flag" target="_blank">flag all authentication cookies as secure</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security" target="_blank">HTTP Strict Transport Security (HSTS)</a>. PFS makes sure that a session key that comes from a set of long-term private and public keys will not be compromised if one of the private or public keys is compromised. Cookies with “secure” flags means that the browser only creates and sends sends back the secure cookies over HTTPS. HSTS is a security service that lets web servers tell browsers that they should only interact with it using secure HTTPS connections, and never HTTP.</p>
+
+				<h3>Software &amp; Technology</h3>
+				<p>When Dropbox launched in 2008, their servers and desktop client software were primarily written in Python. When their user base and infrastructure started to grow, they switched to the open-source programming language <a href="https://golang.org/" target="_blank">Go</a>. They expanded the Go language to meet their needs by building various libraries. These libraries improve certain aspects like caching, error handling, connection management, etc. Dropbox also uses other Python libraries like Twisted, ctypes, and pywin32. Dropbox’s desktop application uses various Python GUI toolkits like wxWidgets and Cocoa. Their web application is written in CoffeeScript.</p>
+				<p>Dropbox uses version history. This means that multiple users can modify the same file without overwriting versions. In the back-end this is accomplished with the use of <a href="http://en.wikipedia.org/wiki/Delta_encoding" target="_blank">delta encoding</a> technology. This is a way of storing data in the form of differences between data files instead of complete files. This means that when a file in Dropbox is changed, only the pieces of the file that were changed will be synchronized and uploaded.</p>
+
+				
+				<!-- Go Hello World -->
+				<pre><code>package</code> main <br><br>import "fmt" <br><br>func main() {
+	fmt.Println("Hello world")
+}
+				</pre>
+				<div class="caption">
+					<p class="text-muted text-center">"Hello World" program written in Go. <br><a href="https://gobyexample.com/hello-world">www.gobyexample.com</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
